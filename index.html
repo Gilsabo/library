@@ -5,12 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>hola</h1>
 
-
+<div class="container">
+    <h1>Gil's Library</h1>
+    <button class="button-display">+</button>
+    <div class="form-popup">
+        <form action="" method="post">
+            <label for="title">Title</label><br>
+            <input type="text" id="title" name="title" placeholder="Open..." required title="Type the book's author"> <br>
+            <label for="author">Author</label><br>
+            <input type="text" id="author" name="author" placeholder="Andre agassi..." required  title="Type title's book"><br>
+            <label for="pages">Pages</label><br>
+            <input type="number" id="title" name="title" placeholder="452.."><br>
+            <label for="read">Read</label>
+            <input type="radio" id="read" name="read">
+            <label for="no-read">No read</label>
+            <input type="radio" id="no-read" name="read"> 
+            <button type="submit">Submit</button> 
+        </form>
+    </div>
+    <div class="books-container">
+        <div class="book-display"></div>
+    </div>
+</div>
 
     <script src="js/js.js"></script>
 </body>
