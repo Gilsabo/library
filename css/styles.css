@@ -1,3 +1,30 @@
-h1{
-    color: red;
+body, html{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+    
 }
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: auto;
+    gap: 1rem;
+
+}
+
+.form-popup{
+    border: 1px solid black;
+    
+    
+}
+
+
+
+
+
+
+
