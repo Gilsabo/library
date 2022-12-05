@@ -11,26 +11,25 @@
 
 <div class="container">
     <h1>Gil's Library</h1>
-    <div class="button"><button type="button">+</button></div>
+    <div class="button-popup"><button type="button">+</button></div>
     <div class="form-popup">
         <form action="" method="post">
             <label for="title">Title</label><br>
-            <input type="text" id="title" name="title" value="" placeholder="Open..." required title="Type the book's author"> <br>
+            <input type="text" id="title" name="title"  placeholder="Open..." required title="Type the book's author"> <br>
             <label for="author">Author</label><br>
-            <input type="text" id="author" name="author" value="" placeholder="Andre agassi..." required  title="Type title's book"><br>
+            <input type="text" id="author" name="author"  placeholder="Andre agassi..." required  title="Type title's book"><br>
             <label for="pages">Pages</label><br>
-            <input type="number" id="title" name="title" value="" placeholder="452.."><br>
-            <label for="read">Read</label>
-            <input type="radio" id="read" name="read" value="">
-            <label for="no-read">No read</label>
-            <input type="radio" id="no-read" name="read" value=""> <br> 
-            <button type="submit">Submit</button> 
+            <input type="number" id="pages" name="pages"  placeholder="452.."><br>
+            <label for="read">read</label>
+            <input type="checkbox"> <br>
+            <button class ="submit" type="submit">Submit</button> 
             <button type="reset">Reset</button>
         </form>
     </div>
     <div class="books-container">
         <div class="book-display"></div>
     </div>
+    <div id="overlay"></div>
 </div>
 
     <script src="js/js.js"></script>

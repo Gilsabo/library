@@ -18,8 +18,15 @@ body, html{
 
 .form-popup{
     border: 1px solid black;
+    display: none;
     
     
+}
+
+label, input, button{
+
+margin: 0.5rem;
+padding: 0.2rem;
 }
 
 
