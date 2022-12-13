@@ -50,16 +50,21 @@ padding: 0.2rem;
     z-index: -1;
 }
 
-.book-display{
+.books-container{
     display: flex;
     justify-content: space-around;
     margin-top: 10rem;
-    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    margin-left: 12rem;
+    margin-right: 12rem;
 }
 
-
-
-
+.book-display{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 2px solid black;
+    margin-left: 50px;
+}
 
 
 
