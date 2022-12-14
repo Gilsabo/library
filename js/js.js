@@ -1,5 +1,4 @@
-
-const displayBook = document.querySelector('.book-display');
+const container = document.querySelector('.container')
 const buttonPopUp = document.querySelector('.button-popup');
 const formPopUp = document.querySelector('.form-popup');
 const submitButton = document.querySelector('.submit');
@@ -8,6 +7,9 @@ const titleDiv = document.querySelector('.title');
 const authorDiv = document.querySelector('.author');
 const pagesDiv = document.querySelector('.pages');
 const readDiv = document.querySelector('.status');
+const buttonRemove= document.querySelector('.buttonRemove')
+const deleteButton = document.querySelector('.deleteButton')
+
 
 buttonPopUp.addEventListener('click',()=>{
     if(formPopUp.style.display ==='none'){
@@ -18,8 +20,6 @@ buttonPopUp.addEventListener('click',()=>{
         overlay.style.display='none';
     }
 });  
-
-
 
 
 function Book (title, author, pages, read) {
@@ -34,28 +34,30 @@ function Book (title, author, pages, read) {
 
 
 const HarryPotter = new Book('Harry', 'JK Rowling', '44', 'read');
+const tito = new Book ('tito','trias','33', 'yesss');
+const trias = new Book ('trias', 'baste', '444', 'yesss')
 
-let myLibrary = [HarryPotter.info()];
+let myLibrary = [HarryPotter, tito, trias];
 
 
 submitButton.addEventListener('click', (e)=>{
 e.preventDefault();
 formPopUp.style.display ='none';
-overlay.style.display='none'
+overlay.style.display='none';
+
 const title= document.getElementById('title').value;
 const author=document.getElementById('author').value;
 const pages=document.getElementById('pages').value;
 let read = document.getElementById('read');
-if (read.checked===true){
-    read='read';
-}else{
-    read='no read'; 
-}
 
 const booking = new Book (title, author, pages, read);
 
+const displayBook = document.createElement('div');
+displayBook.classList.add('book-display');
+container.appendChild(displayBook);
+
 const divSubTitle =document.createElement('div');
-divSubTitle.classList.add('.subTitle');
+divSubTitle.classList.add('subTitle');
 const textSubTitle = document.createTextNode(booking.title);
 divSubTitle.appendChild(textSubTitle);
 displayBook.appendChild(divSubTitle);
@@ -66,44 +68,48 @@ const textSubAuthor = document.createTextNode(booking.author);
 divSubAuthor.appendChild(textSubAuthor);
 displayBook.appendChild(divSubAuthor);
 
-
 const divSubPages =document.createElement('div');
 divSubPages.classList.add('subPages');
 const textSubPages = document.createTextNode(booking.pages);
 divSubPages.appendChild(textSubPages);
 displayBook.appendChild(divSubPages);
 
-
-
 const divSubRead =document.createElement('div');
 divSubRead.classList.add('subRead');
-const textSubRead = document.createTextNode(booking.read);
-divSubRead.appendChild(textSubRead);
-displayBook.appendChild(divSubRead);
+const buttonRead = document.createElement('BUTTON');
+if (read.checked===true){
+    const textButtonRead =  document.createTextNode('read')
+    buttonRead.appendChild(textButtonRead);
+    divSubRead.appendChild(buttonRead);
+    displayBook.appendChild(divSubRead);
+}else{
+    const textButtonNotRead =  document.createTextNode('no read')
+    buttonRead.appendChild(textButtonNotRead);
+    divSubRead.appendChild(buttonRead);
+    displayBook.appendChild(divSubRead);
+}
 
+const divDelete = document.createElement('div');
+divDelete.classList.add('deleteButton');
+const buttonDelete =document.createElement('BUTTON');
+buttonDelete.classList.add('buttonRemove');
+const textButtonDelete = document.createTextNode('Delete');
+buttonDelete.appendChild(textButtonDelete);
+divDelete.appendChild(buttonDelete);
+divSubRead.appendChild(divDelete);
+displayBook.appendChild(divSubRead);
 
 myLibrary.push(booking);
 
 document.querySelector('form').reset();
 
-
 })
 
-displayBook.textContent= HarryPotter.info();
+
+container.addEventListener('click', (e)=>{
+    if(e.target.className === 'buttonRemove'){
+        e.target.parentElement.parentElement.parentElement.remove()
+    }
+})
 
 
-
-
-
-
-/*function addBookToLibrary() {
-
-    
-    const divSubTitle =document.createElement('div')
-    divSubTitle.classList.add('.title')
-    const textSubTitle = document.createTextNode(myLibrary.title)
-    divSubTitle.appendChild(textSubTitle);
-    titleDiv.appendChild(divSubTitle)
-        
-        
-    }*/
