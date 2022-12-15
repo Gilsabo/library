@@ -77,6 +77,7 @@ displayBook.appendChild(divSubPages);
 const divSubRead =document.createElement('div');
 divSubRead.classList.add('subRead');
 const buttonRead = document.createElement('BUTTON');
+buttonRead.classList.add('subStatus');
 if (read.checked===true){
     const textButtonRead =  document.createTextNode('Read')
     buttonRead.appendChild(textButtonRead);
