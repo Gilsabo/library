@@ -8,7 +8,10 @@ const authorDiv = document.querySelector('.author');
 const pagesDiv = document.querySelector('.pages');
 const readDiv = document.querySelector('.status');
 const buttonRemove= document.querySelector('.buttonRemove')
-const deleteButton = document.querySelector('.deleteButton')
+const title= document.getElementById('title')
+const author=document.getElementById('author')
+const pages=document.getElementById('pages')
+let read = document.getElementById('read')
 
 
 buttonPopUp.addEventListener('click',()=>{
@@ -90,14 +93,12 @@ if (read.checked===true){
     displayBook.appendChild(divSubRead);
 }
 
-const divDelete = document.createElement('div');
-divDelete.classList.add('deleteButton');
+
 const buttonDelete =document.createElement('BUTTON');
 buttonDelete.classList.add('buttonRemove');
 const textButtonDelete = document.createTextNode('Delete');
 buttonDelete.appendChild(textButtonDelete);
-divDelete.appendChild(buttonDelete);
-divSubRead.appendChild(divDelete);
+divSubRead.appendChild(buttonDelete);
 displayBook.appendChild(divSubRead);
 
 myLibrary.push(booking);
