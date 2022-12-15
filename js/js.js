@@ -78,12 +78,12 @@ const divSubRead =document.createElement('div');
 divSubRead.classList.add('subRead');
 const buttonRead = document.createElement('BUTTON');
 if (read.checked===true){
-    const textButtonRead =  document.createTextNode('read')
+    const textButtonRead =  document.createTextNode('Read')
     buttonRead.appendChild(textButtonRead);
     divSubRead.appendChild(buttonRead);
     displayBook.appendChild(divSubRead);
 }else{
-    const textButtonNotRead =  document.createTextNode('no read')
+    const textButtonNotRead =  document.createTextNode('No read')
     buttonRead.appendChild(textButtonNotRead);
     divSubRead.appendChild(buttonRead);
     displayBook.appendChild(divSubRead);
@@ -113,3 +113,12 @@ container.addEventListener('click', (e)=>{
 })
 
 
+container.addEventListener('click', (e)=>{
+    if(e.target.className ==='subStatus'&& e.target.innerText==='Read'){
+        console.log(e);
+       e.target.innerText = 'No read';
+    }else if(e.target.className ==='subStatus'&& e.target.innerText==='No read'){
+        e.target.innerText = 'Read';
+
+       }
+})
