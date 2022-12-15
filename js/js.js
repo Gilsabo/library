@@ -22,6 +22,13 @@ buttonPopUp.addEventListener('click',()=>{
     }
 });  
 
+span.addEventListener('click',()=>{
+    formPopUp.style.display ='none';
+        overlay.style.display='none';
+        document.querySelector('form').reset();
+})
+
+
 
 function Book (title, author, pages, read) {
     this.title = title;
@@ -106,9 +113,8 @@ document.querySelector('form').reset();
 
 const classes = document.querySelectorAll('.book-display');
 for(let i=0;i<classes.length;i++){
-    classes[i].classList.add('numberArray-'+i);
+    classes[i].setAttribute("data-num", i);
     
-
 }
 
 })
@@ -132,8 +138,3 @@ container.addEventListener('click', (e)=>{
 })
 
 
-span.addEventListener('click',()=>{
-    formPopUp.style.display ='none';
-        overlay.style.display='none';
-        document.querySelector('form').reset();
-})
