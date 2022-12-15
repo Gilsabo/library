@@ -68,3 +68,8 @@ padding: 0.2rem;
 }
 
 
+span{
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
