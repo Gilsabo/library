@@ -7,11 +7,9 @@ const titleDiv = document.querySelector('.title');
 const authorDiv = document.querySelector('.author');
 const pagesDiv = document.querySelector('.pages');
 const readDiv = document.querySelector('.status');
-const buttonRemove= document.querySelector('.buttonRemove')
-const title= document.getElementById('title')
-const author=document.getElementById('author')
-const pages=document.getElementById('pages')
-let read = document.getElementById('read')
+const buttonRemove= document.querySelector('.buttonRemove');
+const span =document.querySelector('span')
+
 
 
 buttonPopUp.addEventListener('click',()=>{
@@ -48,10 +46,10 @@ e.preventDefault();
 formPopUp.style.display ='none';
 overlay.style.display='none';
 
-const title= document.getElementById('title').value;
-const author=document.getElementById('author').value;
-const pages=document.getElementById('pages').value;
-let read = document.getElementById('read');
+title= document.getElementById('title').value;
+author=document.getElementById('author').value;
+pages=document.getElementById('pages').value;
+read = document.getElementById('read');
 
 const booking = new Book (title, author, pages, read);
 
@@ -105,12 +103,20 @@ myLibrary.push(booking);
 
 document.querySelector('form').reset();
 
+
+const classes = document.querySelectorAll('.book-display');
+for(let i=0;i<classes.length;i++){
+    classes[i].classList.add('numberArray-'+i);
+    
+
+}
+
 })
 
 
 container.addEventListener('click', (e)=>{
     if(e.target.className === 'buttonRemove'){
-        e.target.parentElement.parentElement.parentElement.remove()
+        e.target.parentElement.parentElement.remove();
     }
 })
 
@@ -123,4 +129,11 @@ container.addEventListener('click', (e)=>{
         e.target.innerText = 'Read';
 
        }
+})
+
+
+span.addEventListener('click',()=>{
+    formPopUp.style.display ='none';
+        overlay.style.display='none';
+        document.querySelector('form').reset();
 })
