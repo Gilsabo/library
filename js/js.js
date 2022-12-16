@@ -12,6 +12,7 @@ const span =document.querySelector('span')
 
 
 
+
 buttonPopUp.addEventListener('click',()=>{
     if(formPopUp.style.display ==='none'){
         formPopUp.style.display ='block';
@@ -53,9 +54,9 @@ e.preventDefault();
 formPopUp.style.display ='none';
 overlay.style.display='none';
 
-title= document.getElementById('title').value;
-author=document.getElementById('author').value;
-pages=document.getElementById('pages').value;
+const title= document.getElementById('title').value;
+const author=document.getElementById('author').value;
+const pages=document.getElementById('pages').value;
 read = document.getElementById('read');
 
 const booking = new Book (title, author, pages, read);
@@ -91,11 +92,14 @@ if (read.checked===true){
     buttonRead.appendChild(textButtonRead);
     divSubRead.appendChild(buttonRead);
     displayBook.appendChild(divSubRead);
+    
+    
 }else{
     const textButtonNotRead =  document.createTextNode('No read')
     buttonRead.appendChild(textButtonNotRead);
     divSubRead.appendChild(buttonRead);
     displayBook.appendChild(divSubRead);
+    
 }
 
 
@@ -111,12 +115,30 @@ myLibrary.push(booking);
 document.querySelector('form').reset();
 
 
-
 const classes = document.querySelectorAll('.book-display');
 for(let i=0;i<classes.length;i++){
     classes[i].setAttribute("data-num", i) ;
     }
+
+
 })
+
+
+/*Book.prototype.statusRead= function(read){
+    if (read.checked===true){
+
+    console.log('yes')
+
+    }else{
+    read ='no'
+    }
+}
+*/
+
+
+
+
+
 
 
 
@@ -129,8 +151,6 @@ container.addEventListener('click', (e)=>{
     }
 })
 
-
-
 container.addEventListener('click', (e)=>{
     if(e.target.className ==='subStatus'&& e.target.innerText==='Read'){
         console.log(e);
@@ -140,7 +160,5 @@ container.addEventListener('click', (e)=>{
 
        }
 })
-
-
 
 
