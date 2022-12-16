@@ -45,7 +45,7 @@ const HarryPotter = new Book('Harry', 'JK Rowling', '44', 'read');
 const tito = new Book ('tito','trias','33', 'yesss');
 const trias = new Book ('trias', 'baste', '444', 'yesss')
 
-let myLibrary = [HarryPotter, tito, trias];
+let myLibrary = [];
 
 
 submitButton.addEventListener('click', (e)=>{
@@ -111,20 +111,24 @@ myLibrary.push(booking);
 document.querySelector('form').reset();
 
 
+
 const classes = document.querySelectorAll('.book-display');
 for(let i=0;i<classes.length;i++){
-    classes[i].setAttribute("data-num", i);
-    
-}
-
+    classes[i].setAttribute("data-num", i) ;
+    }
 })
+
+
 
 
 container.addEventListener('click', (e)=>{
     if(e.target.className === 'buttonRemove'){
-        e.target.parentElement.parentElement.remove();
+        console.log(e.target.parentNode.parentNode.dataset.num)
+        const eraseBookLibrary = e.target.parentElement.parentElement.remove();   
+        myLibrary.splice(eraseBookLibrary,1);
     }
 })
+
 
 
 container.addEventListener('click', (e)=>{
@@ -136,5 +140,7 @@ container.addEventListener('click', (e)=>{
 
        }
 })
+
+
 
 
