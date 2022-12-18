@@ -8,11 +8,12 @@ const authorDiv = document.querySelector('.author');
 const pagesDiv = document.querySelector('.pages');
 const readDiv = document.querySelector('.status');
 const buttonRemove= document.querySelector('.buttonRemove');
-const span =document.querySelector('span')
+const span =document.querySelector('span');
+let readStatus =document.getElementById('read-status')
 
 
 
-
+// open form
 buttonPopUp.addEventListener('click',()=>{
     if(formPopUp.style.display ==='none'){
         formPopUp.style.display ='block';
@@ -22,7 +23,7 @@ buttonPopUp.addEventListener('click',()=>{
         overlay.style.display='none';
     }
 });  
-
+//close form
 span.addEventListener('click',()=>{
     formPopUp.style.display ='none';
         overlay.style.display='none';
@@ -30,7 +31,7 @@ span.addEventListener('click',()=>{
 })
 
 
-
+// constructor function
 function Book (title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -41,68 +42,84 @@ function Book (title, author, pages, read) {
     }
 }
 
-
-const HarryPotter = new Book('Harry', 'JK Rowling', '44', 'read');
-const tito = new Book ('tito','trias','33', 'yesss');
-const trias = new Book ('trias', 'baste', '444', 'yesss')
-
+// creat empty array to push the instances of book and declare the variables of book
 let myLibrary = [];
+let read ='';
+let pages=''
+let author=''
+let title=''
 
-
+//get the values from de form when clicked submit button
 submitButton.addEventListener('click', (e)=>{
 e.preventDefault();
 formPopUp.style.display ='none';
 overlay.style.display='none';
 
-const title= document.getElementById('title').value;
-const author=document.getElementById('author').value;
-const pages=document.getElementById('pages').value;
-read = document.getElementById('read');
+//pass arguments to the constructor function
+
+title= document.getElementById('title').value;
+author=document.getElementById('author').value;
+pages=document.getElementById('pages').value;
+
+if (readStatus.checked===true){
+    read='yes'
+}else{
+    read='no'
+}
+
 
 const booking = new Book (title, author, pages, read);
+
+//create div to append the arguments
 
 const displayBook = document.createElement('div');
 displayBook.classList.add('book-display');
 container.appendChild(displayBook);
 
+//create div and class to diplay title
 const divSubTitle =document.createElement('div');
 divSubTitle.classList.add('subTitle');
 const textSubTitle = document.createTextNode(booking.title);
 divSubTitle.appendChild(textSubTitle);
 displayBook.appendChild(divSubTitle);
 
+//create div and class to diplay author
 const divSubAuthor =document.createElement('div');
 divSubAuthor.classList.add('subAuthor');
 const textSubAuthor = document.createTextNode(booking.author);
 divSubAuthor.appendChild(textSubAuthor);
 displayBook.appendChild(divSubAuthor);
 
+//create div and class to diplay pages
 const divSubPages =document.createElement('div');
 divSubPages.classList.add('subPages');
 const textSubPages = document.createTextNode(booking.pages);
 divSubPages.appendChild(textSubPages);
 displayBook.appendChild(divSubPages);
 
+//create div and class to diplay status
 const divSubRead =document.createElement('div');
 divSubRead.classList.add('subRead');
 const buttonRead = document.createElement('BUTTON');
 buttonRead.classList.add('subStatus');
-if (read.checked===true){
+
+if (read==='yes'){
+
+    console.log(readStatus.checked===true)
     const textButtonRead =  document.createTextNode('Read')
     buttonRead.appendChild(textButtonRead);
     divSubRead.appendChild(buttonRead);
-    displayBook.appendChild(divSubRead);
+    displayBook.appendChild(divSubRead);    
     
-    
-}else{
+}else if (read==='no'){
+    console.log(read.checked===false)
     const textButtonNotRead =  document.createTextNode('No read')
     buttonRead.appendChild(textButtonNotRead);
     divSubRead.appendChild(buttonRead);
     displayBook.appendChild(divSubRead);
-    
 }
 
-
+//add button delete
 const buttonDelete =document.createElement('BUTTON');
 buttonDelete.classList.add('buttonRemove');
 const textButtonDelete = document.createTextNode('Delete');
@@ -111,38 +128,18 @@ divSubRead.appendChild(buttonDelete);
 displayBook.appendChild(divSubRead);
 
 myLibrary.push(booking);
-
+//reset values after click button submit
 document.querySelector('form').reset();
 
-
+//add data-attribute to acces to every book display 
 const classes = document.querySelectorAll('.book-display');
 for(let i=0;i<classes.length;i++){
     classes[i].setAttribute("data-num", i) ;
     }
 
-
 })
 
-
-/*Book.prototype.statusRead= function(read){
-    if (read.checked===true){
-
-    console.log('yes')
-
-    }else{
-    read ='no'
-    }
-}
-*/
-
-
-
-
-
-
-
-
-
+//add event delegation to reach dynamic buttonremove and delete book
 container.addEventListener('click', (e)=>{
     if(e.target.className === 'buttonRemove'){
         console.log(e.target.parentNode.parentNode.dataset.num)
@@ -150,15 +147,17 @@ container.addEventListener('click', (e)=>{
         myLibrary.splice(eraseBookLibrary,1);
     }
 })
-
+//add event delegation to toggle button read/no read and change text of the button and value of read
 container.addEventListener('click', (e)=>{
     if(e.target.className ==='subStatus'&& e.target.innerText==='Read'){
         console.log(e);
        e.target.innerText = 'No read';
+       myLibrary[e.target.parentNode.parentNode.dataset.num].read='no'
+       
     }else if(e.target.className ==='subStatus'&& e.target.innerText==='No read'){
         e.target.innerText = 'Read';
+        myLibrary[e.target.parentNode.parentNode.dataset.num].read='yes'
 
        }
 })
-
 
