@@ -1,7 +1,4 @@
- body, html{
-    width: 100%;
-    height: 100%;
- }
+
 .container{
     display: flex;
     flex-direction: column;
@@ -9,6 +6,8 @@
     align-content: center;
     text-align: center;
     gap: 1rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
 
     
 
@@ -16,32 +15,50 @@
 
 
 .container>button{
-    width: 30px;
-    
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     margin: 0 auto;
+    border: none;
+    background: none;
+    font-size: 30px;
+    color: rgb(6, 128, 6);
+}
+
+.container>button:hover{
+    background:rgb(6, 128, 6);
+    color: white;
+    font-size: 40x;
 }
 
 .form-popup{
-    
-    border: 1px solid black;
-    display: none;   
     position: absolute;
+    border: 2px solid rgb(6, 128, 6);
+    display: none;   
     z-index: 1;
     background-color: white;
     width: 16rem;    
     height: 25rem;
-    top:10%;
-    right: 40%;
-    margin: 0 auto;
-    
     border-radius: 12px;
+    top: 40%;
+    left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-label, input, button{
+ input, button{
 
 margin: 0.5rem;
 padding: 0.2rem;
+color:white;
+background: rgb(6, 128, 6);
+border: none;
+
 }
+
+label{
+    color:rgb(6, 128, 6) ;
+}
+
 
 #overlay{
     position: fixed;
@@ -58,24 +75,23 @@ padding: 0.2rem;
 
 .books-container{
     display: flex;
+    width: auto;
     justify-content: space-around;
     margin-top: 10rem;
-    border-bottom: 2px solid black;
-    margin-left: 12rem;
-    margin-right: 12rem;
+    border-bottom: 2px solid rgb(6, 128, 6);
+    
+    
 }
 
 .book-display{
+   
     display: flex;
     justify-content: space-around;
-    border-bottom: 2px solid black;
-    margin-left: 12rem;
-    margin-right: 12rem;
+    border-bottom: 1px solid grey;
+    width: auto;
 }
 
 
 span{
-    position: absolute;
-    right: 10px;
     cursor: pointer;
 }
