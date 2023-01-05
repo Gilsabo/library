@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,8 +9,7 @@
     width: 1000px;
 }
 
-
-.container>button{
+.container>button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -21,67 +20,68 @@
     color: rgb(6, 128, 6);
 }
 
-.container>button:hover{
-    background:rgb(6, 128, 6);
+.container>button:hover {
+    background: rgb(6, 128, 6);
     color: white;
     font-size: 40x;
 }
 
-.form-popup{
+.form-popup {
     position: absolute;
     border: 2px solid rgb(6, 128, 6);
-    display: none;   
+    display: none;
     z-index: 1;
     background-color: white;
-    width: 16rem;    
+    width: 16rem;
     height: 25rem;
     border-radius: 12px;
     top: 40%;
     left: 50%;
-  transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
-.label-title{
+.label-title {
     margin-top: 15px;
     margin-bottom: 2px;
 }
 
-.label{
-    margin-top:10px;
+.label {
+    margin-top: 10px;
     margin-bottom: 2px;
 }
 
- input, button{
-color:white;
-background: rgb(6, 128, 6);
-border: none;
-border-radius: 12px;
-padding: 6px;
-opacity: 0.8;
-margin:5px;
+input,
+button {
+    color: white;
+    background: rgb(6, 128, 6);
+    border: none;
+    border-radius: 12px;
+    padding: 6px;
+    opacity: 0.8;
+    margin: 5px;
 
 }
 
-button{
+button {
     width: 75px;
     height: 35px;
     margin-top: 5px;
 }
 
-button:hover{
+button:hover {
     opacity: 1;
 }
 
-label{
-    color:rgb(6, 128, 6) ;
+label {
+    color: rgb(6, 128, 6);
 }
 
-::placeholder{
+::placeholder {
     color: white;
     opacity: 0.7;
 }
 
-#overlay{
+#overlay {
     position: fixed;
     display: none;
     width: 100%;
@@ -90,24 +90,28 @@ label{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
 }
 
-.books-container{
+.books-container {
     display: flex;
     width: 100%;
     margin-top: 10rem;
-    border-bottom: 2px solid rgb(6, 128, 6); 
+    border-bottom: 2px solid rgb(6, 128, 6);
 }
 
-.title, .author, .pages{
+.title,
+.author,
+.pages {
     margin-right: 18%;
     width: 70px;
 
 }
 
-.subTitle, .subAuthor, .subPages{
+.subTitle,
+.subAuthor,
+.subPages {
     display: flex;
     justify-content: center;
     text-align: center;
@@ -115,26 +119,27 @@ label{
     width: 70px;
 }
 
-.subRead{
-    margin-left:85px;
+.subRead {
+    margin-left: 85px;
 }
 
-.status{
+.status {
     margin-left: 130px
 }
-.book-display{
+
+.book-display {
     display: flex;
     border-bottom: 1px solid grey;
 }
 
-span{
+span {
     cursor: pointer;
     color: rgb(6, 128, 6);
     position: absolute;
     right: 5%;
-    top:1%;
+    top: 1%;
 }
 
 input[type="checkbox"] {
     accent-color: rgb(6, 128, 6);
-    }
+}
