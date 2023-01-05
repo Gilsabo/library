@@ -25,11 +25,13 @@ span.addEventListener('click', () => {
 
 
 // constructor function
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 // creat empty array to push the instances of book and declare the variables of book
