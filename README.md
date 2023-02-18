@@ -16,5 +16,5 @@ This is a library project built using HTML, CSS, and Javascript. The project all
 ## I learned
 - Creating and managing objects in Javascript with object constructors and syntax sugar class 
 - Using localStorage to persist data between page loads (to be done)
-- Building dynamic user interfaces using JavaScript and DOM manipulation
+- Building dynamic user interfaces using Javascript and DOM manipulation
 - Handling user input with forms and event listeners
